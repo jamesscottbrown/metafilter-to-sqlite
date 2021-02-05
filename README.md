@@ -4,7 +4,8 @@ Save your user activity from [Metafilter](https://www.metafilter.com/) to a SQLi
 
 ## Installation
 
-    $ pip install metafilter-to-sqlite
+Clone this repository, then run `python setup.py install`.
+
 
 ## Downloading your comments
 
