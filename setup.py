@@ -25,7 +25,7 @@ setup(
         "Issues": "https://github.com/jamesscottbrown/metafilter-to-sqlite/issues",
     },
     classifiers=[],
-    keywords="metafilter sqlite export dogsheep",
+    keywords="metafilter sqlite export datasette dogsheep",
     license="Apache License, Version 2.0",
     version=VERSION,
     packages=["metafilter_to_sqlite"],
@@ -34,8 +34,11 @@ setup(
         metafilter-to-sqlite=metafilter_to_sqlite.cli:cli
     """,
     install_requires=[
+        "beautifulsoup4",
         "click",
-        "sqlite-utils~=2.4.4",
+        "dateparser",
+        "requests",
+        "sqlite-utils>=2.4.4",
     ],
     extras_require={"test": ["pytest"]},
     tests_require=["metafilter-to-sqlite[test]"],

@@ -30,3 +30,23 @@ def comments(db_path, file):
         utils.error(f"File {file} does not exist")
 
     utils.parse_comments(file, db=db)
+
+
+
+@cli.command()
+@click.argument(
+    "db_path",
+    type=click.Path(file_okay=True, dir_okay=False, allow_dash=False),
+    required=True,
+)
+@click.argument(
+    "user_id",
+    type=int,
+    required=True,
+)
+
+def posts(db_path, user_id):
+    """Scrape posts for a user from their public profile"""
+    db = sqlite_utils.Database(db_path)
+
+    utils.scrape_posts(user_id=user_id, db=db)

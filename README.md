@@ -7,17 +7,27 @@ Save your user activity from [Metafilter](https://www.metafilter.com/) to a SQLi
 Clone this repository, then run `python setup.py install`.
 
 
-## Downloading your comments
+## Usage
+
+### Loading imported comments
 
 If you are logged in, then you can download a file containing your comments [here](http://www.metafilter.com/contribute/my-mefi-export.mefi).
 Note that you are only able to do this once per week.
 
 You can then process this file using the command:
 
-    $ metafilter-to-sqlite -f /path/to/my-mefi-comments.txt metafilter.db
+    $ metafilter-to-sqlite comments  -f /path/to/my-mefi-comments.txt metafilter.db
+
+### Scraping posts
+
+You can scrape posts from a MetaFilter user profile using the command:
+
+    $ metafilter-to-sqlite posts metafilter.db <user_id>
+
+where `<user_id>` is the numerical id (not username) of an account.
 
 ## Limitations
 
-This only saves **comments** (not **posts**) that you have made; it does not save comments or posts by other users that you have favourited.
+This can only import comments and posts that you have made; it does not save comments or posts by other users that you have favourited.
 
 This information could be obtained by web-scraping in the future.
